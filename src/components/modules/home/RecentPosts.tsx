@@ -3,6 +3,10 @@ import Container from '../../UI/Container';
 import { Button } from '@heroui/button';
 import Link from 'next/link';
 import { getResentPost } from '@/src/services/ResentPost';
+import Card from '@/src/components/UI/Card';
+import { TItem } from '@/src/types';
+
+
 
 const RecentPosts = async () => {
 
@@ -19,8 +23,8 @@ const RecentPosts = async () => {
 
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-10' >
                     {
-                        postData?.map(item => <div key={item._id} >
-                            <h2>{item.title}</h2>
+                        postData?.map((item : TItem ) => <div key={item._id} >
+                            <Card item={item}/>
                         </div>)
                     }
                 </div>
